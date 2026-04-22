@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Flor de Crochê | Por Selene</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5e6dc;
+    color: #333;
+}
+
+/* HEADER */
+header {
+    height: 100vh;
+    background: url('https://i.imgur.com/Z6m0azP.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* leve efeito branco por cima */
+    background-blend-mode: lighten;
+    background-color: rgba(255,255,255,0.5);
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin: 0;
+}
+
+header p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.botao {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #f7c8d0;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #e9aeb9;
+}
+
+/* SEÇÕES */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* CATÁLOGO */
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.preco {
+    color: #e08a9b;
+    font-weight: bold;
+}
+
+/* SOBRE */
+.sobre {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* WHATSAPP FIXO */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+    background: #f7c8d0;
+    padding: 20px;
+    text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<header>
+    <h1>Flor de Crochê</h1>
+    <p>Por Selene • Pedra Branca - CE</p>
+    <a href="#catalogo" class="botao">Ver Catálogo</a>
+</header>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" class="section">
+    <h2>Catálogo</h2>
+
+    <div class="produtos">
+
+        <div class="card">
+            <img src="img1.jpg">
+            <h3>Sousplat Floral</h3>
+            <p class="preco">R$ 35,00</p>
+            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+        </div>
+
+        <div class="card">
+            <img src="img2.jpg">
+            <h3>Cesto Decorativo</h3>
+            <p class="preco">R$ 50,00</p>
+            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+        </div>
+
+        <div class="card">
+            <img src="img3.jpg">
+            <h3>Tapete Crochê</h3>
+            <p class="preco">R$ 120,00</p>
+            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+        </div>
+
+        <div class="card">
+            <img src="img4.jpg">
+            <h3>Porta Maquiagem</h3>
+            <p class="preco">R$ 45,00</p>
+            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section class="section">
+    <h2>Sobre</h2>
+    <div class="sobre">
+        <p>
+        Selene é artesã de Pedra Branca - Ceará, apaixonada por crochê e dedicada a criar peças únicas feitas à mão.
+        Cada produto carrega carinho, delicadeza e atenção aos detalhes, trazendo beleza e aconchego para o seu lar.
+        </p>
+    </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section">
+    <h2>Contato</h2>
+    <p>📍 Pedra Branca - CE</p>
+    <p>📲 WhatsApp: (88) 99999-9999</p>
+</section>
+
+<!-- BOTÃO FLUTUANTE -->
+<a class="whatsapp" href="https://wa.me/5588999999999">💬</a>
+
+<!-- RODAPÉ -->
+<footer>
+    <p>© Flor de Crochê | Por Selene</p>
+</footer>
+
+</body>
+</html>
