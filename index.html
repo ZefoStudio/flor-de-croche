@@ -14,90 +14,92 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: #f5e6dc;
-    color: #333;
 }
 
 /* HEADER */
 header {
     height: 100vh;
-    background: url('https://i.imgur.com/Z6m0azP.png') center/cover no-repeat;
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://i.imgur.com/Z6m0azP.png');
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-
-    /* leve efeito branco por cima */
-    background-blend-mode: lighten;
-    background-color: rgba(255,255,255,0.5);
 }
 
 header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    margin: 0;
-}
-
-header p {
-    font-size: 18px;
-    margin: 10px 0;
+    font-size: 45px;
 }
 
 .botao {
-    display: inline-block;
     padding: 12px 25px;
-    background: #f7c8d0;
+    background: linear-gradient(45deg, #f7c8d0, #e08a9b);
     border-radius: 30px;
+    color: white;
     text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
-.botao:hover {
-    background: #e9aeb9;
-}
-
-/* SEÇÕES */
+/* SEÇÃO */
 .section {
     padding: 60px 20px;
     text-align: center;
 }
 
-.section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    margin-bottom: 20px;
+/* FILTROS */
+.filtros button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    background: #f7c8d0;
+    cursor: pointer;
 }
 
-/* CATÁLOGO */
+/* GRID */
 .produtos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
     margin: auto;
 }
 
+/* CARD */
 .card {
-    background: white;
+    background: #fff;
     border-radius: 20px;
     padding: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
     transition: 0.3s;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.6s forwards;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 15px;
 }
 
 .card h3 {
-    margin: 10px 0 5px;
+    margin: 10px 0;
 }
 
 .preco {
@@ -113,100 +115,145 @@ header p {
 }
 
 /* WHATSAPP FIXO */
+
 .whatsapp {
     position: fixed;
     bottom: 20px;
     right: 20px;
+
+    width: 60px;
+    height: 60px;
+
     background: #25D366;
-    color: white;
-    padding: 15px 18px;
     border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+
+    animation: pulse 2s infinite;
 }
 
-/* FOOTER */
-footer {
-    background: #f7c8d0;
-    padding: 20px;
-    text-align: center;
+.whatsapp img {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 30px;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- HERO -->
 <header>
     <h1>Flor de Crochê</h1>
     <p>Por Selene • Pedra Branca - CE</p>
     <a href="#catalogo" class="botao">Ver Catálogo</a>
 </header>
 
-<!-- CATÁLOGO -->
 <section id="catalogo" class="section">
     <h2>Catálogo</h2>
 
+    <!-- FILTROS -->
+    <div class="filtros">
+        <button onclick="filtrar('todos')">Todos</button>
+        <button onclick="filtrar('tapete')">Tapetes</button>
+        <button onclick="filtrar('cesto')">Cestos</button>
+        <button onclick="filtrar('decoracao')">Decoração</button>
+    </div>
+
+    <!-- PRODUTOS -->
     <div class="produtos">
 
-        <div class="card">
-            <img src="img1.jpg">
-            <h3>Sousplat Floral</h3>
-            <p class="preco">R$ 35,00</p>
-            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+        <div class="card" data-categoria="tapete">
+            <img src="img/tapete.jpg">
+            <h3>Tapete de Crochê</h3>
+            <p class="preco">R$ 120,00</p>
+            <a class="botao" onclick="comprar('Tapete de Crochê','R$120,00')">Tenho interesse</a>
         </div>
 
-        <div class="card">
-            <img src="img2.jpg">
+        <div class="card" data-categoria="cesto">
+            <img src="img/cesto.jpg">
             <h3>Cesto Decorativo</h3>
             <p class="preco">R$ 50,00</p>
-            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+            <a class="botao" onclick="comprar('Cesto Decorativo','R$50,00')">Tenho interesse</a>
         </div>
 
-        <div class="card">
-            <img src="img3.jpg">
-            <h3>Tapete Crochê</h3>
-            <p class="preco">R$ 120,00</p>
-            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+        <div class="card" data-categoria="decoracao">
+            <img src="img/sousplat.jpg">
+            <h3>Sousplat Floral</h3>
+            <p class="preco">R$ 35,00</p>
+            <a class="botao" onclick="comprar('Sousplat Floral','R$35,00')">Tenho interesse</a>
         </div>
 
-        <div class="card">
-            <img src="img4.jpg">
+        <div class="card" data-categoria="decoracao">
+            <img src="img/porta.jpg">
             <h3>Porta Maquiagem</h3>
             <p class="preco">R$ 45,00</p>
-            <a class="botao" href="https://wa.me/5588999999999">Comprar</a>
+            <a class="botao" onclick="comprar('Porta Maquiagem','R$45,00')">Tenho interesse</a>
         </div>
 
     </div>
 </section>
 
-<!-- SOBRE -->
 <section class="section">
     <h2>Sobre</h2>
     <div class="sobre">
         <p>
         Selene é artesã de Pedra Branca - Ceará, apaixonada por crochê e dedicada a criar peças únicas feitas à mão.
-        Cada produto carrega carinho, delicadeza e atenção aos detalhes, trazendo beleza e aconchego para o seu lar.
+        Cada produto carrega carinho, delicadeza e atenção aos detalhes.
         </p>
     </div>
 </section>
 
-<!-- CONTATO -->
-<section class="section">
-    <h2>Contato</h2>
-    <p>📍 Pedra Branca - CE</p>
-    <p>📲 WhatsApp: (88) 99999-9999</p>
-</section>
+<a class="whatsapp" href="https://wa.me/5588999999999" target="_blank">
+    <img src="https://i.imgur.com/Uuor7qh.png" alt="WhatsApp">
+</a>
 
-<!-- BOTÃO FLUTUANTE -->
-<a class="whatsapp" href="https://wa.me/5588999999999">💬</a>
-
-<!-- RODAPÉ -->
-<footer>
+<footer class="section">
     <p>© Flor de Crochê | Por Selene</p>
 </footer>
+
+<script>
+
+/* FILTRO */
+function filtrar(categoria) {
+    let cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        if (categoria === 'todos' || card.dataset.categoria === categoria) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+/* WHATSAPP */
+function comprar(produto, preco) {
+    let numero = "5588999999999";
+
+    let mensagem = `Olá, tenho interesse no ${produto} (${preco})`;
+    let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, '_blank');
+}
+
+</script>
 
 </body>
 </html>
